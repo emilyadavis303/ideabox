@@ -20,6 +20,7 @@
         <li>
           <h3><%= idea.title %> (<%= id %>):</h3>
           <%= idea.description %>
+          <a href="/<%= id %>/edit">Make your idea better!</a>
           <form action="/<%= id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="delete"/>
