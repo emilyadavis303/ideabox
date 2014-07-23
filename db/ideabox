@@ -1,19 +1,21 @@
 ---
 ideas:
-- title: Idea
-  description: Boom Shaka Laka Laka Baby
-  rank: 2
-- title: Idea
-  description: Sparkle. Ooo. Ahh. Sizzle.
-  rank: 19
-- title: Idea
-  description: Untz. Untz. Untz.
-  rank: 1
-- title: Idea
-  description: Boop.
-  rank: 22
-- title: Idea
+- title: Programming
   description: Beep. Boop. Beep. Boop.
-  rank: 1
-- title: Idea
-  description: Magic. Pshaw.
+  tags:
+  - Magic
+  - Boom
+  - Sizzle
+  - Happy dancing
+- title: Happiness
+  description: Sparkle. Wiggle. Laugh.
+  tags:
+  - Magic
+  - Sizzle
+  - Love
+  - Happy dancing
+- title: Pshaw
+  description: Boop Happy Nonsense
+  tags:
+  - Prance
+  - Magic

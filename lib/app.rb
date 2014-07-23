@@ -18,7 +18,13 @@ class IdeaBoxApp < Sinatra::Base
     erb :index, locals: {ideas: IdeaStore.all.sort, idea: Idea.new(params)}
   end
 
+  def clean_tags(idea_tags)
+    idea_tags['tags'] =
+      (idea_tags['tags']||"").split(", ") # regex offers more power
+  end
+
   post '/' do
+    clean_tags params[:idea]
     IdeaStore.create(params[:idea])
     redirect '/'
   end
@@ -36,8 +42,14 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   put '/:id' do |id|
+    clean_tags params[:idea]
     IdeaStore.update(id.to_i, params[:idea])
     redirect '/'
+  end
+
+  get '/:tag' do |tag|
+    ideas = IdeaStore.find_by_tag(tag)
+    erb :results, locals: {tag: tag, ideas: ideas}
   end
 
   delete '/:id' do |id|
