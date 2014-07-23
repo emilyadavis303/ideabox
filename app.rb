@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.require
 require './idea'
+require './idea_store'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
@@ -14,27 +15,26 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: {ideas: Idea.all}
+    erb :index, locals: {ideas: IdeaStore.all, idea: Idea.new(params)}
   end
 
   post '/' do
-    idea = Idea.new(params[:idea])
-    idea.save
+    IdeaStore.create(params[:idea])
     redirect '/'
   end
 
   get '/:id/edit' do |id|
-    idea = Idea.find(id.to_i)
+    idea = IdeaStore.find(id.to_i)
     erb :edit, locals: {id: id, idea: idea}
   end
 
   put '/:id' do |id|
-    Idea.update(id.to_i, params[:idea])
+    IdeaStore.update(id.to_i, params[:idea])
     redirect '/'
   end
 
   delete '/:id' do |id|
-    Idea.delete(id.to_i)
+    IdeaStore.delete(id.to_i)
     redirect '/'
   end
 
