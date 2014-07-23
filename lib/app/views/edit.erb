@@ -1,13 +1,15 @@
-<html>
-  <body>
-    <form action="/<%= id %>" method="POST">
-      <p>
-        Idea not so brilliant? Make it better:
-      </p>
+<form action='/<%= idea.id %>' method='POST'>
+    <p>
+      <% if idea.id %>
+        Make Your Idea More Brilliant:
+      <% else %>
+        Your Idea:
+      <% end %>
+    </p>
+    <% if idea.id %>
       <input type="hidden" name="_method" value="PUT" />
-      <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
-      <textarea name='idea[description]'><%= idea.description %></textarea><br/>
-      <input type='submit'/>
-    </form>
-  </body>
-</html>
+    <% end %>
+    <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
+    <textarea name='idea[description]'><%= idea.description %></textarea><br/>
+    <input type='submit'/>
+  </form>
