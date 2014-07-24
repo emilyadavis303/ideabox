@@ -26,7 +26,12 @@ class IdeaBoxApp < Sinatra::Base
   post '/' do
     clean_tags params[:idea]
     IdeaStore.create(params[:idea])
-    redirect '/'
+    erb :create
+  end
+
+  get '/existing' do
+    ideas = IdeaStore.all
+    erb :existing, locals: {ideas: ideas}
   end
 
   post '/:id/like' do |id|
@@ -34,6 +39,11 @@ class IdeaBoxApp < Sinatra::Base
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
+  end
+
+  get '/:id/details' do |id|
+    idea = IdeaStore.find(id.to_i)
+    erb :details, locals: {idea: idea}
   end
 
   get '/:id/edit' do |id|
@@ -44,7 +54,7 @@ class IdeaBoxApp < Sinatra::Base
   put '/:id' do |id|
     clean_tags params[:idea]
     IdeaStore.update(id.to_i, params[:idea])
-    redirect '/'
+    redirect '/existing'
   end
 
   get '/:tag' do |tag|

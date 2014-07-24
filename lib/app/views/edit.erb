@@ -1,16 +1,16 @@
 <form action='/<%= idea.id %>' method='POST'>
-    <p>
-      <% if idea.id %>
-        Make Your Idea More Brilliant:
-      <% else %>
-        Your Idea:
-      <% end %>
-    </p>
+  <p>
     <% if idea.id %>
-      <input type="hidden" name="_method" value="PUT" />
+      Make Your Idea More Brilliant:
+    <% else %>
+      Your Idea:
     <% end %>
-    <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
-    <textarea name='idea[description]'><%= idea.description %></textarea><br/>
-    <input type='text' name='idea[tags]' value="<%= idea.tags.join(' ') %>">
-    <input type='submit'/>
-  </form>
+  </p>
+  <% if idea.id %>
+    <input type="hidden" name="_method" value="PUT" />
+  <% end %>
+  <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
+  <textarea name='idea[description]'><%= idea.description %></textarea><br/>
+  <input type='text' name='idea[tags]' value="<%= idea.tags.join(' ') %>" />
+  <input type='submit' value='Save Brilliance' />
+</form>

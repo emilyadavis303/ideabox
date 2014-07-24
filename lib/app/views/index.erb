@@ -7,31 +7,20 @@
   Give it some umph:<br/>
   <textarea name='idea[description]'></textarea><br/>
   Tag it: <input type='text' name='idea[tags]'><br/>
-  <input type='submit' value='Create Brilliance'/>
+  <input type='submit' value='Create Brilliance'/></br>
 </form>
 
-<h2>Look at all of your brilliant ideas!</h2>
+  </br>
+  </br>
 
-<ul>
-  <% ideas.each do |idea| %>
-    <li>
-      <h3><%= idea.title %>:</h3>
-      <%= idea.description %>
-      <h4>Tags:</h4>
-      <ul>
-      <% idea.tags.each do |tag| %>
-        <li><a href="/<%= tag %>"><%= tag %></a></li>
-      <% end %>
-      </ul>
-      <br/>
-      <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-        <input type='submit' value="+"/>
-      </form>
-      <a href="/<%= idea.id %>/edit">Make It Better</a>
-      <form action='/<%= idea.id %>' method='POST'>
-        <input type="hidden" name="_method" value="DELETE">
-        <input type='submit' value="delete"/>
-      </form>
-    </li>
-  <% end %>
-</ul>
+  <h3>Your brilliant ideas in brief:</h3>
+  <ul>
+    <% ideas.each do |idea| %>
+      <li>
+        <h3><%= idea.title %>:</h3>
+        <%= idea.description %>
+      </li>
+    <% end %>
+  </ul>
+
+  <a href="/existing">All of Your Brilliant Ideas</a>

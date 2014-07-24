@@ -1,21 +1,28 @@
 ---
 ideas:
 - title: Programming
-  description: Beep. Boop. Beep. Boop.
+  description: Beep. Boop. Beep. Boop. BLAM!! Boom!
+  tags:
+  - Ruby
+  - Magic
+  - Dancing
+  - Boom
+- title: Happy
+  description: Dance. Purple. Wiggle.
+  tags:
+  - Happy dancing
+  - Shizam
+  - Boom
+- title: Pow
+  description: Pew Pew Pew Pew Pow
+  tags:
+  - Boom
+  - Shizam
+  - Magic
+- title: Magic
+  description: Pshaw. Fireworks. Gravity.
   tags:
   - Magic
   - Boom
-  - Sizzle
-  - Happy dancing
-- title: Happiness
-  description: Sparkle. Wiggle. Laugh.
-  tags:
-  - Magic
-  - Sizzle
-  - Love
-  - Happy dancing
-- title: Pshaw
-  description: Boop Happy Nonsense
-  tags:
-  - Prance
-  - Magic
+  - Sparkle
+  - Nonsense hilarity

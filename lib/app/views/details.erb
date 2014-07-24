@@ -1,6 +1,6 @@
-<h1>Here are your results:</h1>
+<h3>Here are the details of your brilliant idea:</h3>
 <ul>
-  <% ideas.each do |idea| %>
+
     <li>
       <h3><%= idea.title %>:</h3>
       <%= idea.description %>
@@ -9,14 +9,10 @@
       <% idea.tags.each do |tag| %>
         <li><a href="/<%= tag %>"><%= tag %></a></li>
       <% end %>
-      </ul><br/>
-
+      </ul>
+      <br/>
       <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
         <input type='submit' value="+"/>
-      </form>
-
-      <form action='/<%= idea.id %>/details' method='GET' style="display: inline">
-          <input type='submit' value='All the Deets' />
       </form>
 
       <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
@@ -27,7 +23,7 @@
         <input type="hidden" name="_method" value="DELETE">
         <input type='submit' value="Nevermind. This Idea is Shit."/>
       </form>
-  <% end %>
+    </li>
 </ul>
 
 <a href="/existing">All of Your Brilliant Ideas</a>

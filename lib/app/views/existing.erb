@@ -1,4 +1,5 @@
-<h1>Here are your results:</h1>
+<h2>Look at all of your brilliant ideas!</h2>
+
 <ul>
   <% ideas.each do |idea| %>
     <li>
@@ -6,27 +7,26 @@
       <%= idea.description %>
       <h4>Tags:</h4>
       <ul>
-      <% idea.tags.each do |tag| %>
-        <li><a href="/<%= tag %>"><%= tag %></a></li>
-      <% end %>
-      </ul><br/>
+        <% idea.tags.each do |tag| %>
+          <li><a href="/<%= tag %>"><%= tag %></a></li>
+        <% end %></br>
+      </ul
+      <br/>
 
       <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
         <input type='submit' value="+"/>
       </form>
-
       <form action='/<%= idea.id %>/details' method='GET' style="display: inline">
           <input type='submit' value='All the Deets' />
       </form>
-
       <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
            <input type='submit' value='Make It Better' />
       </form>
-
       <form action='/<%= idea.id %>' method='POST' style="display: inline">
         <input type="hidden" name="_method" value="DELETE">
         <input type='submit' value="Nevermind. This Idea is Shit."/>
       </form>
+    </li>
   <% end %>
 </ul>
 
